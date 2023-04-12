@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Характеристики студентів</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 50%;
+			margin: auto;
+		}
+css
+Copy code
+	th, td {
+		border: 1px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+
+	caption {
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	.quality-success {
+		background-color: green;
+		color: white;
+	}
+
+	.quality-warning {
+		background-color: orange;
+		color: white;
+	}
+
+	.quality-failure {
+		background-color: red;
+		color: white;
+	}
+</style>
+</head>
+<body>
+	<table>
+		<caption>Характеристики студентів</caption>
+		<thead>
+			<tr>
+				<th>Спеціальність</th>
+				<th>Кількість студентів</th>
+				<th>Якість успішності</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Комп’ютерна інженерія</td>
+				<td>250</td>
+				<td class="quality-success">80%</td>
+			</tr>
+			<tr>
+				<td>Телекомунікації та радіотехніка</td>
+				<td>200</td>
+				<td class="quality-warning">75%</td>
+			</tr>
+			<tr>
+				<td>Електромеханіка</td>
+				<td>150</td>
+				<td class="quality-success">85%</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
