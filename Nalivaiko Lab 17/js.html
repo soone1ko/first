@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Click Example</title>
+</head>
+<body>
+  <button id="myButton">Натисніть мене</button>
+  <h1>Гра "Вгадай число"</h1>
+  <button onclick="playGame()">Почати гру</button>
+
+  <script>
+    // Функція для виведення поточного часу
+    function displayCurrentTime() {
+      const months = [
+        'січня',
+        'лютого',
+        'березня',
+        'квітня',
+        'травня',
+        'червня',
+        'липня',
+        'серпня',
+        'вересня',
+        'жовтня',
+        'листопада',
+        'грудня'
+      ];
+
+      const daysOfWeek = [
+        'неділя',
+        'понеділок',
+        'вівторок',
+        'середа',
+        'четвер',
+        'пятниця',
+        'субота'
+      ];
+
+      const currentDate = new Date();
+
+      const hours = currentDate.getHours().toString().padStart(2, '0');
+      const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+      const seconds = currentDate.getSeconds().toString().padStart(2, '0');
+      const dayOfMonth = currentDate.getDate().toString().padStart(2, '0');
+      const month = months[currentDate.getMonth()];
+      const year = currentDate.getFullYear();
+
+      const formattedDate = `${hours}:${minutes}:${seconds}, ${daysOfWeek[currentDate.getDay()]}, ${dayOfMonth} ${month} ${year} року`;
+
+      console.log(formattedDate);
+
+      return formattedDate;
+    }
+
+    // Отримання посилання на кнопку за її id
+    const myButton = document.getElementById('myButton');
+
+    // Додавання обробника події до кнопки
+    myButton.addEventListener('click', function() {
+      displayCurrentTime();
+    });
+  </script>
+  <script>
+    function playGame() {
+      var randomNumber = Math.floor(Math.random() * 101); // Генеруємо випадкове число від 0 до 100
+      var attempts = 0;
+
+      console.log("Гра розпочалася.");
+
+      while (true) {
+        var guess = prompt("Вгадайте число від 0 до 100:");
+
+        if (guess === null) {
+          // Користувач натиснув "Скасувати", вихід з гри
+          alert("Гра скасована");
+          console.log("Гра скасована.");
+          break;
+        }
+
+        var parsedGuess = parseInt(guess, 10);
+
+        if (isNaN(parsedGuess)) {
+          // Недійсне значення, повторення циклу
+          alert("Будь ласка, введіть дійсне число.");
+          console.log("Недійсне значення введено.");
+          continue;
+        }
+
+        attempts++;
+        console.log("Спроба " + attempts + ": число " + parsedGuess);
+
+        if (parsedGuess === randomNumber) {
+          // Користувач вгадав число
+          alert("Вітаємо! За " + attempts + " спроб ви вгадали число " + randomNumber);
+          console.log("Гравець вгадав число " + randomNumber + " за " + attempts + " спроб.");
+          
+          var playAgain = confirm("Бажаєте зіграти ще раз?");
+          if (playAgain) {
+            console.log("Гравець розпочинає нову гру.");
+            continue;
+          } else {
+            console.log("Гра закінчена.");
+            break;
+          }
+        } else {
+          // Користувач не вгадав число
+          var difference = Math.abs(randomNumber - parsedGuess);
+          var message = "Спробуйте ще раз";
+
+          if (difference <= 5) {
+            message += " (дуже гаряче)";
+          } else if (difference <= 10) {
+            message += " (гаряче)";
+          } else if (difference <= 20) {
+            message += " (тепло)";
+          } else {
+            message += " (холодно)";
+          }
+
+          confirm(message); // Запитуємо користувача, чи бажає продовжити гру
+        }
+      }
+    }
+  </script>
+</body>
+</html>

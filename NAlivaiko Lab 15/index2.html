@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Виведення чисел</title>
+</head>
+<body>
+    <script>
+        var number = 0;
+        
+        do {
+            if (number === 0) {
+                document.write(number + " - це нуль<br>");
+            } else if (number % 2 === 0) {
+                document.write(number + " - парне число<br>");
+            } else {
+                document.write(number + " - непарне число<br>");
+            }
+            
+            number++;
+        } while (number <= 10);
+    </script>
+</body>
+</html>

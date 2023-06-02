@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>День тижня</title>
+</head>
+<body>
+    <script>
+        var dayNumber = prompt("Введіть число від 1 до 7:");
+
+        var dayName;
+        switch (Number(dayNumber)) {
+            case 7:
+                dayName = "Неділя";
+                break;
+            case 1:
+                dayName = "Понеділок";
+                break;
+            case 2:
+                dayName = "Вівторок";
+                break;
+            case 3:
+                dayName = "Середа";
+                break;
+            case 4:
+                dayName = "Четвер";
+                break;
+            case 5:
+                dayName = "П'ятниця";
+                break;
+            case 6:
+                dayName = "Субота";
+                break;
+            default:
+                dayName = "Неправильне число";
+                break;
+        }
+
+        document.write("Введене число " + dayNumber + " відповідає дню: " + dayName);
+    </script>
+</body>
+</html>
